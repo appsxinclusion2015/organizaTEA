@@ -4,7 +4,7 @@ $(function(){
     var App = (function(){
         
         function App(){
-          this.routineController = new RoutineController();
+          this.routineController = new RutineController();
         };
         
         return App;

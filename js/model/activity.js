@@ -21,12 +21,36 @@ var Activity = (function(){
     this.video = video;
   }
   
+   Activity.prototype.setThumbnail = function(thumbnail){
+    this.thumbnail = thumbnail;
+  }
+  
   Activity.prototype.setImageEnd = function(image){
     this.imageEnd = image;
   }
   
   Activity.prototype.setDuration = function(duration){
     this.duration = duration;
+  }
+  
+  Activity.prototype.getName = function(){
+    return this.name;
+  }
+  
+  Activity.prototype.getVideo = function(){
+    return this.video;
+  }
+  
+  Activity.prototype.getThumbnail = function(){
+    return this.thumbnail;
+  }
+  
+  Activity.prototype.getImageEnd = function(){
+    return this.imageEnd;
+  }
+  
+  Activity.prototype.getDuration = function(){
+    return this.duration;
   }
   
   return Activity;  
