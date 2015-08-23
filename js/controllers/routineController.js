@@ -19,7 +19,7 @@ var RoutineController = (function(){
   };
   
   RoutineController.prototype.render =  function(){
-    //Render the elements in the UI
+    //Render the elements in the UI    
   };
   
   RoutineController.prototype.loadActivity = function(activity){
