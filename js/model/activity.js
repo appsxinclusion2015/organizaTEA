@@ -29,5 +29,21 @@ var Activity = (function(){
     this.duration = duration;
   }
   
+  Activity.prototype.getName = function(){
+    return this.name;
+  }
+  
+  Activity.prototype.getVideo = function(video){
+    return this.video;
+  }
+  
+  Activity.prototype.getImageEnd = function(image){
+    return this.imageEnd;
+  }
+  
+  Activity.prototype.getDuration = function(duration){
+    return this.duration;
+  }
+  
   return Activity;  
 })();

@@ -6,23 +6,23 @@
 var Rutine = (function(){
   
   function Rutine(){
-    this.eventList = [];    
+    this.activityList = [];    
   }
   
   Rutine.prototype.addActivity = function(activity){
-    this.eventList.push(activity);
+    this.activityList.push(activity);
   }
   
   Rutine.prototype.removeActivity = function(activity){
-    //this.eventList.push(activity);
+    //this.activityList.push(activity);
   }
   
   Rutine.prototype.addTimelapse = function(timelapse){
-    this.eventList.push(timelapse);
+    this.activityList.push(timelapse);
   }
   
   Rutine.prototype.removeTimelapse = function(timelapse){
-    //this.eventList.push(timelapse);
+    //this.activityList.push(timelapse);
   }
   
   return Rutine;
