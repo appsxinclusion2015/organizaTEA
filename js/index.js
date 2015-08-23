@@ -1,3 +1,5 @@
+var application;
+
 $(function(){
     var App = (function(){
         
@@ -8,5 +10,5 @@ $(function(){
         return App;
     })();
     
-    var app = new App();
+    application = new App();
 });
