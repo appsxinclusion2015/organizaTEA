@@ -17,7 +17,7 @@ Grupo 6:
 --------
 
 * Emanuel Ravera (ravera.emanuel@gmail.com)
-* Nicolas Oliver ()
+* Nicolas Oliver (nicolasoliver03@gmail.com)
 * Agustin Ferrari (agustinferrari@eml.cc)
 * Alejandra Albri (alealbri@hotmail.com)
 * Ignacio Brusso (nachobrusso@gmail.com)
