@@ -1,0 +1,29 @@
+{
+    "id": "sample_activity_1",
+    "title": "Actividad 1",
+    "description": "Actividad de ejemplo 1",
+    "banner": "http://placehold.it/350x150",
+    "duration": 5000,
+    "resources": [
+      {
+        "type": "video",
+        "src": "https://www.youtube.com/embed/i8ju_10NkGY",
+        "caption": "caption 1"
+      },
+      {
+        "type": "image",
+        "src": "http://placehold.it/550x412",
+        "caption": "caption 2"
+      },
+      {
+        "type": "image",
+        "src": "http://placehold.it/550x412",
+        "caption": "caption 3"
+      },
+      {
+        "type": "image",
+        "src": "http://placehold.it/550x412",
+        "caption": "caption 4"
+      }
+    ]
+  }

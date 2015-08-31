@@ -1,0 +1,10 @@
+{
+  "id": "sample_routine_1",
+  "type": "routine",
+  "title": "Rutina 1",
+  "description": "Rutina de ejemplo 1",
+  "activities": [
+    "sample_activity_1",
+    "sample_activity_2"
+  ]
+}
