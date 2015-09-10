@@ -8,7 +8,8 @@ angular.module('myApp', [
   'myApp.config',
   'myApp.routine',
   'myApp.activity',
-  'myApp.version'
+  'myApp.version',
+  'myApp.directive'
 ])
 
 .config(['$routeProvider', function($routeProvider) {

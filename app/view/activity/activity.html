@@ -1,66 +1,26 @@
-<ol class="breadcrumb">
-  <li><a href="#/home">home</a></li>
-  <li><a href="#/routine/{{ routineId }}">routine</a></li>
-  <li class="active">activity</li>
-</ol>
+<button button-back ng-hide="isShowingCongratulateGif"></button>
 
-<div class="container">
-  <div class="page-header">
-    <h2>{{ activity.title }} <small>{{ activity.description }}</small></h2>
-  </div>
-  
-  <div class="row">
-    <div class="col-xs-12">
-      
-      <div id="carousel-example-generic" class="carousel slide">
-        <!-- Indicators -->
-        <ol class="carousel-indicators">
-          <li data-target="#carousel-example-generic" data-slide-to="{{ $index }}" ng-class="{active: $first}" ng-repeat="resource in activity.resources"></li>
-        </ol>
-
-        <!-- Wrapper for slides -->
-        <div class="carousel-inner" role="listbox">
-          <div ng-class="{item: true, active: $first}" ng-repeat="resource in activity.resources">
-            <div class="embed-responsive embed-responsive-4by3" ng-if="resource.type === 'video'">
-              <iframe class="embed-responsive-item" src="{{ resource.src | trustAsResourceUrl }}"></iframe>
-            </div>
-            <img ng-src="{{ resource.src }}" class="img-responsive" alt="..." ng-if="resource.type === 'image'">
-            <div class="carousel-caption">
-              {{ resource.caption }}
-            </div>
-          </div>
-        </div>
-
-        <!-- Controls -->
-        <a class="left carousel-control" data-target="#carousel-example-generic" role="button" data-slide="prev">
-          <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-          <span class="sr-only">Previous</span>
-        </a>
-        <a class="right carousel-control" data-target="#carousel-example-generic" role="button" data-slide="next">
-          <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-          <span class="sr-only">Next</span>
-        </a>
-      </div>
-    </div>
-  </div>
-  
-  <br>
-  
-  <div class="row">
-    <div class="col-xs-12">
-      <div class="progress">
-        <div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="{{ activityProgress }}" aria-valuemin="0" aria-valuemax="100" ng-style="progressBarStyle">
-          <span class="glyphicon glyphicon-piggy-bank"></span>
-        </div>
-      </div>
-    </div>
-  </div>
-  
-  <div class="row">
-    <div class="col-xs-12">
-      <div class="btn-group btn-group-justified" role="group" aria-label="...">
-        <a type="button" class="btn btn-primary" ng-click="startProgress()">Start</a>
-      </div>
-    </div>
-  </div>
+<div class="mdl-typography--text-center" ng-hide="isShowingCongratulateGif">
+  <h4>{{ activity.title }}</h4>
 </div>
+
+<div id="carousel-activity-media" class="carousel slide" ng-hide="isShowingCongratulateGif">
+  <div class="carousel-inner" role="listbox">
+    <div ng-class="{item: true, active: $first}" ng-repeat="resource in activity.resources">
+      <div class="embed-responsive embed-responsive-4by3" ng-if="resource.type === 'video'">
+        <iframe class="embed-responsive-item" src="{{ resource.src | trustAsResourceUrl }}" frameborder="0" allowfullscreen></iframe>
+      </div>
+      <img ng-src="{{ resource.src }}" class="img-responsive activity-carousel-image" alt="..." ng-if="resource.type === 'image'">
+    </div>
+  </div>
+
+  <a class="left carousel-control activity-carousel-control" data-target="#carousel-activity-media" role="button" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+  </a>
+  <a class="right carousel-control activity-carousel-control" data-target="#carousel-activity-media" role="button" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+  </a>
+</div>
+
+<img src="http://img.kimensajes.com/felicidades/25.gif" class="app-congrats-gif" ng-show="isShowingCongratulateGif" ng-click="hideCongratulateGif()"></img>
+

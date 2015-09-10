@@ -1,29 +1,20 @@
 {
   "id": "sample_activity_2",
-  "title": "Actividad 2",
+  "title": "A LA ESCUELA",
   "description": "Actividad de ejemplo 2",
-  "banner": "http://placehold.it/350x150",
+  "banner": "http://static.ellahoy.es/ellahoy/fotogallery/625X0/144771/dibujos-para-pintar-de-la-escuela.jpg",
   "duration": 5000,
   "resources": [
       {
         "type": "video",
-        "src": "https://www.youtube.com/embed/i8ju_10NkGY",
+        "src": "https://www.youtube.com/embed/djk3hrPKAV4",
+        "thumbnails": [
+          "http://img.youtube.com/vi/djk3hrPKAV4/0.jpg",
+          "http://img.youtube.com/vi/djk3hrPKAV4/1.jpg",
+          "http://img.youtube.com/vi/djk3hrPKAV4/2.jpg",
+          "http://img.youtube.com/vi/djk3hrPKAV4/3.jpg"
+        ],
         "caption": "caption 1"
-      },
-      {
-        "type": "image",
-        "src": "http://placehold.it/550x412",
-        "caption": "caption 2"
-      },
-      {
-        "type": "image",
-        "src": "http://placehold.it/550x412",
-        "caption": "caption 3"
-      },
-      {
-        "type": "image",
-        "src": "http://placehold.it/550x412",
-        "caption": "caption 4"
       }
     ]
 }

@@ -12,14 +12,28 @@
   <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/normalize.css">
   <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/main.css">
   <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+  <link rel="stylesheet" href="bower_components/material-design-lite/material.min.css">
+  <script src="bower_components/material-design-lite/material.min.js"></script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <link rel="stylesheet" href="app.css">
-  <script src="bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
+  <!--script src="bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script-->
 </head>
 <body>
   <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
   <![endif]-->
-  <div ng-view></div>
+  <!-- Always shows a header, even in smaller screens. -->
+  <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+    <header class="mdl-layout__header">
+      <div class="mdl-layout__header-row" style="padding:40px;">
+        <!-- Title -->
+        <span class="mdl-layout-title app-navbar-title">OrganizaTEA</span>
+      </div>
+    </header>
+    <main class="mdl-layout__content" ng-view>
+      <!-- Your content goes here -->
+    </main>
+  </div>
 
   <!-- In production use:
   <script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
@@ -28,8 +42,13 @@
   <script src="bower_components/angular-route/angular-route.min.js"></script>
   <script src="bower_components/angular-resource/angular-resource.min.js"></script>
   <script src="bower_components/jquery/dist/jquery.min.js"></script>
-  <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="bower_components/bootstrap/js/transition.js"></script>
+  <script src="bower_components/bootstrap/js/carousel.js"></script>
+  <!--script src="bower_components/materialize/dist/js/materialize.min.js"></script-->
+  <!--script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script-->
+  
   <script src="app.js"></script>
+  <script src="components/directive/directive.js"></script>
   <script src="components/resource/resource.js"></script>
   <script src="components/resource/resource-filter.js"></script>
   <script src="view/home/home.js"></script>

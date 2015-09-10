@@ -12,6 +12,7 @@
     "angular-mocks": "~1.4.0",
     "html5-boilerplate": "~5.2.0",
     "bootstrap": "~3.3.5",
-    "angular-resource": "~1.4.5"
+    "angular-resource": "~1.4.5",
+    "material-design-lite": "~1.0.4"
   }
 }

@@ -1,0 +1,63 @@
+<button button-back></button>
+
+<div class="mdl-typography--text-center">
+  <h4>CREAR ACTIVIDAD</h4>
+</div>
+
+<div class="mdl-grid">
+  <div class="mdl-cell mdl-cell--1-col-tablet"></div>
+  <div class="mdl-card mdl-shadow--3dp mdl-cell mdl-cell--6-col-tablet">
+    <div class="mdl-card__title">
+      <h2 class="mdl-card__title-text">
+        <span class="mdl-textfield mdl-js-textfield">
+          <input class="mdl-textfield__input" type="text" ng-model="activity.title" />
+        </span>
+      </h2>
+    </div>
+    <div class="mdl-card__media">
+      <img ng-src="{{ activity.banner }}" class="routine-activity-banner">
+    </div>
+    <div class="mdl-card__actions mdl-typography--text-center">
+      <span class="mdl-textfield mdl-js-textfield">
+        <input class="mdl-textfield__input" type="text" ng-model="activity.banner" />
+      </span>
+    </div>
+  </div>  
+  <div class="mdl-cell mdl-cell--1-col-tablet"></div>
+</div>
+
+<div class="mdl-typography--text-center">
+  <h5>AGREGAR VIDEO</h5>
+  
+  <span class="mdl-textfield mdl-js-textfield">
+    <input class="mdl-textfield__input" type="text" id="newResourceSrc" ng-model="newResourceSrc" />
+    <label class="mdl-textfield__label" for="newResourceSrc"></label>
+  </span>
+  
+  <button class="mdl-button mdl-js-button mdl-button--icon" ng-click="addResource()">
+    <i class="material-icons">add</i>
+  </button>
+</div>
+
+<div class="mdl-grid">
+  <div class="mdl-cell mdl-cell--1-col-tablet"></div>
+  <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp mdl-cell mdl-cell--6-col-tablet">
+    <thead>
+      <tr>
+        <th class="mdl-data-table__cell--non-numeric">MOSTRAR</th>
+        <th class="mdl-data-table__cell--non-numeric">URL</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="resource in activity.resources">
+        <td class="mdl-data-table__cell--non-numeric">
+          <input type="checkbox" ng-model="resource.enabled">
+        </td>
+        <td class="mdl-data-table__cell--non-numeric">
+          <span>{{ resource.src }}</span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="mdl-cell mdl-cell--1-col-tablet"></div>
+</div>

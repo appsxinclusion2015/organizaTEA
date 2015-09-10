@@ -1,4 +1,31 @@
 /* app css stylesheet */
-.page-header {
-  margin: 20px 0 10px;
+.app-navbar-title {
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.app-back-button {
+  float: left;
+  position: fixed;
+  margin-left: 1%;
+  margin-top: 1%;
+}
+
+.app-congrats-gif {
+  width: 100%;
+}
+
+.routine-activity-banner {
+  width: 100%;
+}
+
+.activity-carousel-control {
+    height: 30%;
+    margin-bottom: auto;
+    margin-top: auto;
+}
+
+.activity-carousel-image {
+  width: 100%;
+  height: 576px;
 }

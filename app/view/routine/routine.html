@@ -1,36 +1,18 @@
-<ol class="breadcrumb">
-  <li><a href="#/home">home</a></li>
-  <li class="active">routine</li>
-</ol>
+<button button-back></button>
 
-<div class="container">
-  <div class="page-header">
-    <h1>{{ routine.title }} <small>{{ routine.description }}</small></h1>
-  </div>
-  
-  <div ng-repeat="activity in activityList">
-    <div class="row">
-      <div class="col-xs-12">
-        <div class="thumbnail">
-          <a href="#/activity/{{ activity.id }}?routineId={{ routine.id }}"> 
-            <img ng-src="{{ activity.banner }}" alt="...">
-          </a>
-          <div class="caption">
-            <h3>{{ activity.title }}</h3>
-            <p>{{ activity.description }}</p>
-            <p>
-            </p>
-            <p>
-              <div class="progress">
-                <div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="min-width: 2em;">
-                  <span class="glyphicon glyphicon-piggy-bank" ></span>
-                </div>
-              </div>
-            </p>
-          </div>
-        </div>
-      </div>
+<div class="mdl-typography--text-center">
+  <h4>{{ routine.title }}</h4>
+</div>
+
+<div class="mdl-grid" ng-repeat="activity in activityList">
+  <div class="mdl-cell mdl-cell--1-col-tablet"></div>
+  <div class="mdl-card mdl-shadow--3dp mdl-cell mdl-cell--6-col-tablet" ng-click="goToActivity(activity.id)">
+    <div class="mdl-card__title">
+      <h2 class="mdl-card__title-text">{{ activity.title }}</h2>
     </div>
+    <div class="mdl-card__media">
+      <img ng-src="{{ activity.banner }}" class="routine-activity-banner">
     </div>
-  </div>
+  </div>  
+  <div class="mdl-cell mdl-cell--1-col-tablet"></div>
 </div>

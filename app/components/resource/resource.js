@@ -6,19 +6,15 @@ angular.module('myApp.resource', [
 ])
 
 .factory('ConfigResource', ['$resource', function($resource) {
-  return $resource('webresources/configs/:configId.json', {}, {
-    query: {method:'GET', params:{configId:'config'}, isArray:true}
-  });
+  return $resource('webresources/configs/:configId.json', {}, {});
 }])
 
 .factory('RoutineResource', ['$resource', function($resource) {
   return $resource('webresources/routines/:routineId.json', {}, {
-    query: {method:'GET', params:{routineId:'sample_routine_1'}, isArray:true}
+    query: {method:'GET', isArray:true, params: {routineId:'query'}}
   });
 }])
 
 .factory('ActivityResource', ['$resource', function($resource) {
-  return $resource('webresources/activities/:activityId.json', {}, {
-    query: {method:'GET', isArray:true}
-  });
+  return $resource('webresources/activities/:activityId.json', {}, {});
 }]);

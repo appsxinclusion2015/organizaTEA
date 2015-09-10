@@ -1,8 +1,8 @@
 {
-  "id": "sample_routine_1",
+  "id": "sample_routine_2",
   "type": "routine",
-  "title": "RUTINA 1",
-  "description": "Rutina de ejemplo 1",
+  "title": "RUTINA 2",
+  "description": "Rutina de ejemplo 2",
   "activities": [
     "sample_activity_1",
     "sample_activity_2"
