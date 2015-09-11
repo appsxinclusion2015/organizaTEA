@@ -14,13 +14,19 @@ angular.module('myApp.activity', ['ngRoute','ngAnimate'])
     });
 }])
 
-.controller('ActivityController', ['$scope','$routeParams','RoutineResource','ActivityResource',function($scope,$routeParams,RoutineResource,ActivityResource) {
+.controller('ActivityController', ['$scope','$routeParams','$filter', '$rootScope',function($scope,$routeParams, $filter, $rootScope) {
   var activityId = $routeParams.activityId;
   var showCongratulateGif = !!$routeParams.showCongratulateGif;
   
-  ActivityResource.get({activityId:activityId}, function(activity){
-    $scope.activity = activity;
-  });
+  $rootScope.saveActivityList = function(){
+    window.localStorage.setItem('activities', JSON.stringify($rootScope.activityList));    
+  };
+  
+  $rootScope.getActivityList = function(){
+    return JSON.parse(window.localStorage.getItem('activities'));
+  }; 
+  
+  $scope.activity = $rootScope.getActivity(activityId);
   
   $scope.isShowingCongratulateGif = showCongratulateGif;
   
@@ -44,6 +50,12 @@ angular.module('myApp.activity', ['ngRoute','ngAnimate'])
       {src: 'https://www.youtube.com/embed/ScMzIvxBSi4', enabled: true}
     ]
   };
+  
+  $scope.addActivity = function(){
+    //Add the new activity to the list and save the list
+    $rootScope.activityList.push($scope.activity);
+    $rootScope.saveActivityList();
+  }
   
   $scope.newResourceSrc;
   

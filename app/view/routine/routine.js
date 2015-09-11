@@ -14,19 +14,37 @@ angular.module('myApp.routine', ['ngRoute','ngAnimate'])
     });
 }])
 
-.controller('RoutineController', ['$scope','$location','$routeParams','RoutineResource','ActivityResource', function($scope,$location,$routeParams,RoutineResource,ActivityResource) {
+.controller('RoutineController', ['$scope','$location','$routeParams','$rootScope', '$filter', function($scope,$location,$routeParams,$rootScope, $filter) {
   var routineId =  $routeParams.routineId;
+  $scope.activityList = [];  
+ 
+  $rootScope.saveRoutineList = function(){
+    window.localStorage.setItem('routines', JSON.stringify($rootScope.routineList));    
+  };
   
-  RoutineResource.get({routineId:routineId}, function(routine){
-    $scope.routine = routine;
-    $scope.activityList = [];
-    
-    routine.activities.forEach(function(activityId,index){
-      ActivityResource.get({activityId:activityId}, function(activity){
+  $rootScope.getRoutineList = function(){
+    return JSON.parse(window.localStorage.getItem('routines'));
+  }; 
+  
+  $rootScope.getRoutine = function(routineId){
+    return $filter('filter')($rootScope.routineList, {id: routineId})[0];
+  };
+  
+  $rootScope.getActivity = function(activityId){
+    return $filter('filter')($rootScope.activityList, {id: activityId})[0];
+  }; 
+  
+  $scope.initializeRoutine = function(routineId){
+      $scope.routine =  $scope.getRoutine(routineId);
+      $scope.routine.activities.forEach(function(activityId){
+        var activity = $rootScope.getActivity(activityId);
         $scope.activityList.push(activity);
       });
-    });
-  });
+      return $scope.routine;
+  };
+  
+  //Initialize the routine selected
+  $scope.routine = $scope.initializeRoutine(routineId);
   
   $scope.goToActivity = function(activityId) {
     $location.path('/activity/' + activityId);
@@ -43,6 +61,11 @@ angular.module('myApp.routine', ['ngRoute','ngAnimate'])
     activities: [
       'sample_activity_1'
     ]
+  };
+  
+  $scope.saveRoutine = function() {    
+    $rootScope.routineList.push($scope.routine);
+    $rootScope.saveRoutineList();
   };
   
   $scope.goToCreateActivity = function(){
