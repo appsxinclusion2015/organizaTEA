@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('myApp.routine', ['ngRoute'])
+angular.module('myApp.routine', ['ngRoute','ngAnimate'])
 
 .config(['$routeProvider', function($routeProvider) {
   $routeProvider
@@ -72,7 +72,7 @@ angular.module('myApp.routine', ['ngRoute'])
     $location.path('/newActivity');
   };
   
-  $scope.$on('$viewContentLoaded', function() {
-      componentHandler.upgradeDom();
-  });
+  //$scope.$on('$viewContentLoaded', function() {
+  //    componentHandler.upgradeDom();
+  //});
 }]);
