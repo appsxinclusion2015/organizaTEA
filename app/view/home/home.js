@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('myApp.home', ['ngRoute'])
+angular.module('myApp.home', ['ngRoute','ngAnimate'])
 
 .config(['$routeProvider', function($routeProvider) {
   $routeProvider.when('/home', {

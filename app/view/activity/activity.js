@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('myApp.activity', ['ngRoute'])
+angular.module('myApp.activity', ['ngRoute','ngAnimate'])
 
 .config(['$routeProvider', function($routeProvider) {
   $routeProvider
