@@ -72,7 +72,7 @@ angular.module('myApp.routine', ['ngRoute','ngAnimate'])
     $location.path('/newActivity');
   };
   
-  $scope.$on('$viewContentLoaded', function() {
-      componentHandler.upgradeDom();
-  });
+  //$scope.$on('$viewContentLoaded', function() {
+  //    componentHandler.upgradeDom();
+  //});
 }]);
