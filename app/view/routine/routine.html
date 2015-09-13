@@ -1,10 +1,10 @@
 <button button-back></button>
 
 <div class="mdl-typography--text-center">
-  <h4>{{ routine.title }}</h4>
+  <h4>{{ model.routine.title }}</h4>
 </div>
 
-<div class="mdl-grid" ng-repeat="activity in activityList">
+<div class="mdl-grid" ng-repeat="activity in model.activityList">
   <div class="mdl-cell mdl-cell--1-col-tablet"></div>
   <div class="mdl-card mdl-shadow--3dp mdl-cell mdl-cell--6-col-tablet" ng-click="goToActivity(activity.id)">
     <div class="mdl-card__title">

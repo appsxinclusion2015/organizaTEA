@@ -13,7 +13,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr ng-repeat="routine in routines">
+      <tr ng-repeat="routine in routineList">
         <td class="mdl-data-table__cell--non-numeric" ng-click="goToRoutine(routine.id)">
           <h4 class="mdl-typography--text-center">{{ routine.title }}</h4>
         </td>
@@ -26,7 +26,7 @@
 <div class="mdl-grid">
   <div class="mdl-cell mdl-cell--1-col-tablet"></div>
   <div class="mdl-cell mdl-cell--6-col-tablet mdl-typography--text-center">
-    <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--colored app-color-orange" ng-click="goToCreateRoutine()">
+    <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--colored app-color-orange" ng-click="goToCreate()">
       <i class="material-icons">add</i>
     </button>
   </div>

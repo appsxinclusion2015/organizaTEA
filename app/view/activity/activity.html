@@ -1,14 +1,14 @@
 <button button-back ng-hide="isShowingCongratulateGif"></button>
 
 <div class="mdl-typography--text-center" ng-hide="isShowingCongratulateGif">
-  <h4>{{ activity.title }}</h4>
+  <h4>{{ model.activity.title }}</h4>
 </div>
 
 <div class="mdl-grid">
   <div class="mdl-cell mdl-cell--8-col-tablet" ng-click="goToActivity(activity.id)">
     <div id="carousel-activity-media" class="carousel slide" ng-hide="isShowingCongratulateGif">
       <div class="carousel-inner" role="listbox">
-        <div ng-class="{item: true, active: $first}" ng-repeat="resource in activity.resources">
+        <div ng-class="{item: true, active: $first}" ng-repeat="resource in model.resourceList">
           <div class="embed-responsive embed-responsive-4by3" ng-if="resource.type === 'video'">
             <iframe class="embed-responsive-item" ng-src="{{ resource.src | trustAsResourceUrl }}" frameborder="0" allowfullscreen></iframe>
           </div>

@@ -1,0 +1,48 @@
+<button button-back></button>
+
+<div class="mdl-typography--text-center">
+  <h4>CREAR RUTINA</h4>
+  
+  <div class="mdl-textfield mdl-js-textfield">
+    <input class="mdl-textfield__input" type="text" ng-model="routine.title" />
+  </div>
+</div>
+
+<div class="mdl-typography--text-center">
+  <h5>
+    AGREGAR ACTIVIDAD 
+  </h5>
+</div>
+
+<div class="mdl-grid">
+  <div class="mdl-cell mdl-cell--1-col-tablet"></div>
+  <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp mdl-cell mdl-cell--6-col-tablet">
+    <thead>
+      <tr>
+        <th class="mdl-data-table__cell--non-numeric">ACTIVIDAD</th>
+        <th class="mdl-data-table__cell--non-numeric">AGREGADA</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="activitySelection in activitySelectionList">
+        <td class="mdl-data-table__cell-non-numeric">
+          <span>{{ activitySelection.activity.title }}</span>
+        </td>
+        <td class="mdl-data-table__cell-non-numeric">
+          <input type="checkbox" ng-model="activitySelection.enabled">
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="mdl-cell mdl-cell--1-col-tablet"></div>
+</div>
+
+<div class="mdl-typography--text-center">
+  <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" ng-click="saveRoutine()">
+    GUARDAR
+  </button>
+
+  <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" ng-click="cancel()">
+    CANCELAR
+  </button>
+</div>
