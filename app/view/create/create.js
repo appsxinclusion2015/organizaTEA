@@ -109,7 +109,6 @@ angular.module('myApp.create', ['ngRoute','ngAnimate'])
     var id = provider === 'vimeo' ? matches[2] : matches[3];
     
     if(provider === 'youtube'){
-      $scope.resource.src = 'https://www.youtube.com/embed/' + id;
       $scope.previewUrl = 'https://www.youtube.com/embed/' + id;
     }
     
