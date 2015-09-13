@@ -17,4 +17,12 @@ angular.module('myApp.directive', [])
       componentHandler.upgradeElement(elem[0]);
     }
   };
+}])
+
+.directive('mdlComponent', [function(){
+  return {
+    link: function(scope,elem,attrs) {
+      componentHandler.upgradeElement(elem[0]);
+    }
+  };
 }]);

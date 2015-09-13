@@ -23,60 +23,11 @@ angular.module('myApp', [
   //$rootScope.activityList = JSON.parse(window.localStorage.getItem('activities'));
   //$rootScope.routineList = JSON.parse(window.localStorage.getItem('routines'));
   
-  $rootScope.routineList = [
-    {
-      "id": "routine_0",
-      "type": "routine",
-      "title": "DEMO",
-      "description": "RUTINA DEMO",
-      "activities": [
-        "activity_0",
-        "activity_1"
-      ]
-    }
-  ];
+  $rootScope.routineList = [];
   
-  $rootScope.activityList = [
-    {
-      "id": "activity_0",
-      "title": "DESPERTARSE",
-      "description": "Actividad de ejemplo 1",
-      "banner": "http://previews.123rf.com/images/blueringmedia/blueringmedia1412/blueringmedia141200517/34694731-Un-dibujo-de-una-ni-a-de-despertarse-con-una-alarma-sobre-un-fondo-blanco-Foto-de-archivo.jpg",
-      "duration": 5000,
-      "resources": [
-        "resource_0",
-        "resource_1"
-      ]
-    }, 
-    {
-      "id": "activity_1",
-      "title": "A LA ESCUELA",
-      "description": "Actividad de ejemplo 2",
-      "banner": "http://static.ellahoy.es/ellahoy/fotogallery/625X0/144771/dibujos-para-pintar-de-la-escuela.jpg",
-      "duration": 5000,
-      "resources": [
-        "resource_2"
-      ]
-    }
-  ];
+  $rootScope.activityList = [];
   
-  $rootScope.resourceList = [
-    {
-      "id": "resource_0",
-      "type": "video",
-      "src": "https://www.youtube.com/embed/I2uGevUBZKo"
-    },
-    {
-      "id": "resource_1",
-      "type": "video",
-      "src": "https://www.youtube.com/embed/i8ju_10NkGY"
-    },
-    {
-      "id": "resource_2",
-      "type": "video",
-      "src": "https://www.youtube.com/embed/QH2-TGUlwu4"
-    }
-  ];
+  $rootScope.resourceList = [];
   
   $rootScope.saveRoutineList = function(){
     window.localStorage.setItem('routines', JSON.stringify($rootScope.routineList));    

@@ -3,28 +3,37 @@
 <div class="mdl-typography--text-center">
   <h5>AGREGAR RECURSO</h5>
   
-  <span class="mdl-textfield mdl-js-textfield">
+  <span class="mdl-textfield mdl-js-textfield" mdl-component>
+    <input class="mdl-textfield__input" type="text" id="newResourceTitle" ng-model="resource.title" />
+    <label class="mdl-textfield__label" for="newResourceTitle">titulo</label>
+  </span>
+  
+  <span class="mdl-textfield mdl-js-textfield" mdl-component>
     <input class="mdl-textfield__input" type="text" id="newResourceSrc" ng-model="resource.src" />
-    <label class="mdl-textfield__label" for="newResourceSrc"></label>
+    <label class="mdl-textfield__label" for="newResourceSrc">url</label>
   </span>
 </div>
 
-<div class="mdl-grid" ng-if="resource.src">
+<div class="mdl-grid" ng-if="previewUrl" mdl-component>
   <div class="mdl-cell mdl-cell--1-col-tablet"></div>
   <div class="mdl-cell mdl-cell--6-col-tablet">
     <div class="embed-responsive embed-responsive-4by3">
-      <iframe class="embed-responsive-item" ng-src="{{ resource.src | trustAsResourceUrl }}" frameborder="0" allowfullscreen></iframe>
+      <iframe class="embed-responsive-item" ng-src="{{ previewUrl | trustAsResourceUrl }}" frameborder="0" allowfullscreen></iframe>
     </div>
   </div>
   <div class="mdl-cell mdl-cell--1-col-tablet"></div>  
 </div>
 
 <div class="mdl-typography--text-center">
-  <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" ng-click="saveResource()">
+  <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" ng-click="previewResource()" mdl-component>
+    PREVISUALIZAR
+  </button>
+  
+  <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" ng-click="saveResource()" mdl-component>
     GUARDAR
   </button>
 
-  <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" ng-click="cancel()">
+  <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" ng-click="cancel()" mdl-component>
     CANCELAR
   </button>
 </div>

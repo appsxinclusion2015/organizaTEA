@@ -9,17 +9,19 @@
   <div class="mdl-card mdl-shadow--3dp mdl-cell mdl-cell--6-col-tablet">
     <div class="mdl-card__title">
       <h2 class="mdl-card__title-text">
-        <span class="mdl-textfield mdl-js-textfield">
-          <input class="mdl-textfield__input" type="text" ng-model="activity.title" />
+        <span class="mdl-textfield mdl-js-textfield" mdl-component>
+          <input class="mdl-textfield__input" id="newActivityTitle" type="text" ng-model="activity.title" />
+          <label class="mdl-textfield__label" for="newActivityTitle">titulo</label>
         </span>
       </h2>
     </div>
     <div class="mdl-card__media">
-      <img ng-src="{{ activity.banner }}" class="routine-activity-banner">
+      <img ng-src="{{ previewUrl }}" class="routine-activity-banner">
     </div>
     <div class="mdl-card__actions mdl-typography--text-center">
-      <span class="mdl-textfield mdl-js-textfield">
-        <input class="mdl-textfield__input" type="text" ng-model="activity.banner" />
+      <span class="mdl-textfield mdl-js-textfield" mdl-component>
+        <input class="mdl-textfield__input" id="newActivityBanner" type="text" ng-model="activity.banner" />
+        <label class="mdl-textfield__label" for="newActivityBanner">banner</label>
       </span>
     </div>
   </div>  
@@ -38,7 +40,7 @@
     <tbody>
       <tr ng-repeat="resourceSelection in resourceSelectionList">
         <td class="mdl-data-table__cell-non-numeric">
-          <span>{{ resourceSelection.resource.src }}</span>
+          <span>{{ resourceSelection.resource.title }}</span>
         </td>
         <td class="mdl-data-table__cell-non-numeric">
           <input type="checkbox" ng-model="resourceSelection.enabled">
@@ -50,11 +52,15 @@
 </div>
 
 <div class="mdl-typography--text-center">
-  <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" ng-click="saveActivity()">
+  <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" ng-click="previewActivity()" mdl-component>
+    PREVISUALIZAR
+  </button>
+  
+  <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" ng-click="saveActivity()" mdl-component>
     GUARDAR
   </button>
 
-  <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" ng-click="cancel()">
+  <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" ng-click="cancel()" mdl-component>
     CANCELAR
   </button>
 </div>

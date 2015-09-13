@@ -29,10 +29,9 @@ angular.module('myApp.create', ['ngRoute','ngAnimate'])
 .controller('NewRoutineController', ['$scope','$location','$rootScope', function($scope,$location,$rootScope) {
   
   $scope.routine = {
-    id: 'sample_routine_id',
     type: "routine",
-    title: "NUEVA RUTINA",
-    description: "NUEVA RUTINA",
+    title: "",
+    description: "",
     activities: []
   };
   
@@ -50,6 +49,7 @@ angular.module('myApp.create', ['ngRoute','ngAnimate'])
     });
     
     $rootScope.saveRoutine($scope.routine);
+    $location.path('/create');
   };
   
   $scope.cancel = function(){
@@ -60,18 +60,23 @@ angular.module('myApp.create', ['ngRoute','ngAnimate'])
 
 .controller('NewActivityController', ['$scope','$rootScope','$location', function($scope,$rootScope,$location) {
   $scope.activity = {
-    title: 'NUEVA ACTIVIDAD',
+    title: '',
     description: 'NUEVA ACTIVIDAD',
-    banner: 'http://placehold.it/350x150',
+    banner: '',
     duration: 5000,
     resources: []
   };
   
+  $scope.previewUrl = 'http://placehold.it/350x150';
   $scope.resourceSelectionList = [];
   
   $rootScope.resourceList.forEach(function(resource){
     $scope.resourceSelectionList.push({resource:resource,enabled:false});
   });
+  
+  $scope.previewActivity = function(){
+    $scope.previewUrl = $scope.activity.banner;
+  };
   
   $scope.saveActivity = function(){
     $scope.resourceSelectionList.forEach(function(resourceSelection){
@@ -81,6 +86,7 @@ angular.module('myApp.create', ['ngRoute','ngAnimate'])
     });
     
     $rootScope.saveActivity($scope.activity);
+    $location.path('/create');
   }; 
   
   $scope.cancel = function(){
@@ -91,11 +97,17 @@ angular.module('myApp.create', ['ngRoute','ngAnimate'])
 .controller('NewResourceController', ['$scope','$rootScope','$location', function($scope,$rootScope,$location) {
   $scope.resource = {
     type: 'video',
-    src: ''
+    src: '',
+    title: ''
+  };
+  
+  $scope.previewResource = function(){
+    $scope.previewUrl = $scope.resource.src;
   };
   
   $scope.saveResource = function(){
     $rootScope.saveResource($scope.resource);
+    $location.path('/create');
   };
   
   $scope.cancel = function(){

@@ -6,12 +6,29 @@ angular.module('myApp.home', ['ngRoute','ngAnimate'])
   $routeProvider.when('/home', {
     templateUrl: 'view/home/home.html',
     controller: 'HomeController'
+  })
+  .when('/home/:appId', {
+    templateUrl: 'view/home/home.html',
+    controller: 'HomeController'
   });
 }])
 
-.controller('HomeController', ['$scope','$location','$rootScope',function($scope,$location,$rootScope) {
-  $scope.routineList = $rootScope.getRoutineList();
-  
+.controller('HomeController', ['$scope','$location','$rootScope','$routeParams','AppResource',function($scope,$location,$rootScope,$routeParams,AppResource) {
+  // load an app from the app service
+  if($routeParams.appId) {
+    AppResource.get({appId:$routeParams.appId},function(app){
+      $rootScope.routineList = app.routines;
+      $rootScope.activityList = app.activities;
+      $rootScope.resourceList = app.resources;
+      $rootScope.initializeDB();
+      
+      $scope.routineList = $rootScope.getRoutineList();  
+    });
+  }
+  else {
+    $scope.routineList = $rootScope.getRoutineList();  
+  }
+
   $scope.goToRoutine = function(routineId) {
     $location.path('/routine/' + routineId );
   };
