@@ -95,6 +95,8 @@ angular.module('myApp.create', ['ngRoute','ngAnimate'])
 }])
 
 .controller('NewResourceController', ['$scope','$rootScope','$location', function($scope,$rootScope,$location) {
+  var videoPattern = /https?:\/\/(?:.*?)\.?(youtube|vimeo)\.com\/(watch\?[^#]*v=([a-z_A-Z0-9\-]{11}))*$/;
+  
   $scope.resource = {
     type: 'video',
     src: '',
@@ -102,10 +104,29 @@ angular.module('myApp.create', ['ngRoute','ngAnimate'])
   };
   
   $scope.previewResource = function(){
-    $scope.previewUrl = $scope.resource.src;
+    var matches = $scope.resource.src.match(videoPattern);
+    var provider = matches[1];
+    var id = provider === 'vimeo' ? matches[2] : matches[3];
+    
+    if(provider === 'youtube'){
+      $scope.resource.src = 'https://www.youtube.com/embed/' + id;
+      $scope.previewUrl = 'https://www.youtube.com/embed/' + id;
+    }
+    
+    if(provider === 'vimeo'){
+      // not implemented
+    }
   };
   
   $scope.saveResource = function(){
+    var matches = $scope.resource.src.match(videoPattern);
+    var provider = matches[1];
+    var id = provider === 'vimeo' ? matches[2] : matches[3];
+    
+    if(provider === 'youtube'){
+      $scope.resource.src = 'https://www.youtube.com/embed/' + id;
+    }
+
     $rootScope.saveResource($scope.resource);
     $location.path('/create');
   };
