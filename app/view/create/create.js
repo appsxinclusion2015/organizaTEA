@@ -97,35 +97,37 @@ angular.module('myApp.create', ['ngRoute','ngAnimate'])
 .controller('NewResourceController', ['$scope','$rootScope','$location', function($scope,$rootScope,$location) {
   var videoPattern = /https?:\/\/(?:.*?)\.?(youtube|vimeo)\.com\/(watch\?[^#]*v=([a-z_A-Z0-9\-]{11}))*$/;
   
+  $scope.searchQuery = '';
+  
+  $scope.searchResults = [];
+  
   $scope.resource = {
     type: 'video',
     src: '',
     title: ''
   };
   
-  $scope.previewResource = function(){
-    var matches = $scope.resource.src.match(videoPattern);
-    var provider = matches[1];
-    var id = provider === 'vimeo' ? matches[2] : matches[3];
-    
-    if(provider === 'youtube'){
-      $scope.previewUrl = 'https://www.youtube.com/embed/' + id;
-    }
-    
-    if(provider === 'vimeo'){
-      // not implemented
-    }
+  $scope.searchResources = function(){
+    var request = gapi.client.youtube.search.list({
+        part: 'snippet',
+        type: 'video',
+        q: $scope.searchQuery,
+    });
+
+    request.execute(function(data){
+      $scope.searchResults = data.items;
+      $scope.$digest();
+      componentHandler.upgradeDom();
+    });
+  };
+  
+  $scope.previewResource = function(resource){
+    $scope.resource.src = 'https://www.youtube.com/embed/' + resource.id.videoId;
+    $scope.resource.title = resource.snippet.title;
+    $scope.previewUrl = $scope.resource.src;
   };
   
   $scope.saveResource = function(){
-    var matches = $scope.resource.src.match(videoPattern);
-    var provider = matches[1];
-    var id = provider === 'vimeo' ? matches[2] : matches[3];
-    
-    if(provider === 'youtube'){
-      $scope.resource.src = 'https://www.youtube.com/embed/' + id;
-    }
-
     $rootScope.saveResource($scope.resource);
     $location.path('/create');
   };

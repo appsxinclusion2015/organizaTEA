@@ -4,13 +4,13 @@
   <h5>AGREGAR RECURSO</h5>
   
   <span class="mdl-textfield mdl-js-textfield" mdl-component>
-    <input class="mdl-textfield__input" type="text" id="newResourceTitle" ng-model="resource.title" />
-    <label class="mdl-textfield__label" for="newResourceTitle">titulo</label>
+    <input class="mdl-textfield__input" type="text" id="newResourceTitle" ng-model="searchQuery" />
+    <label class="mdl-textfield__label" for="newResourceTitle">buscar</label>
   </span>
   
   <span class="mdl-textfield mdl-js-textfield" mdl-component>
-    <input class="mdl-textfield__input" type="text" id="newResourceSrc" ng-model="resource.src" />
-    <label class="mdl-textfield__label" for="newResourceSrc">url</label>
+    <input class="mdl-textfield__input" type="text" id="newResourceTitle" ng-model="resource.title" />
+    <label class="mdl-textfield__label" for="newResourceTitle">titulo</label>
   </span>
 </div>
 
@@ -24,9 +24,26 @@
   <div class="mdl-cell mdl-cell--1-col-tablet"></div>  
 </div>
 
+<div class="mdl-grid" ng-if="searchResults.length > 0">
+  <div class="mdl-cell mdl-cell--1-col-tablet"></div>
+  <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp mdl-cell mdl-cell--6-col-tablet">
+    <thead>
+      <tr>
+        <th class="mdl-data-table__cell--non-numeric">RESULTADOS<th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="result in searchResults">
+        <td class="mdl-data-table__cell--non-numeric" ng-click="previewResource(result)">{{ result.snippet.title }}</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="mdl-cell mdl-cell--1-col-tablet"></div>
+</div>
+
 <div class="mdl-typography--text-center">
-  <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" ng-click="previewResource()" mdl-component>
-    PREVISUALIZAR
+  <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" ng-click="searchResources()" mdl-component>
+    BUSCAR
   </button>
   
   <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" ng-click="saveResource()" mdl-component>

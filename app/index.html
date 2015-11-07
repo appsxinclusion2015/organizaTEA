@@ -63,5 +63,22 @@
   <script src="components/version/version.js"></script>
   <script src="components/version/version-directive.js"></script>
   <script src="components/version/interpolate-filter.js"></script>
+  
+  <!--script src="components/youtube/auth.js"></script-->
+  <script>
+  googleApiClientReady = function() {
+    gapi.auth.init(function() {
+      window.setTimeout(function(){
+        gapi.client.setApiKey('AIzaSyAFpaimWjjFzXtsUA7ck6RPHcuu8Gdwmj0');
+
+        gapi.client.load('youtube', 'v3', function() {
+          console.log('youtubeApi ready');
+        });
+      }, 1);
+    });
+  };
+  </script>
+  <script src="https://apis.google.com/js/client.js?onload=googleApiClientReady"></script>
+  
 </body>
 </html>
