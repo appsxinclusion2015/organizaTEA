@@ -1,12 +1,12 @@
 {
   "project": {
-    "projectSettingsVersion": "3.0.0",
+    "projectSettingsVersion": "1.3",
     "creationData": {
       "type": "Import",
       "projectTypeName": "com.intel.xdk.projecttype.webapp",
       "src": "",
       "projectGuid": "aff77cb7-4e3f-4aaa-a2c3-7a1ff5d84d1a",
-      "lastModifiedDate": 1472667910121,
+      "lastModifiedDate": 1442178540330,
       "creationDate": 1442171769374
     },
     "sourceDirectory": "app",
@@ -15,15 +15,7 @@
     "gameMetadata": {},
     "startFile": "index.html",
     "projectTags": [],
-    "projectFiles": {
-      "xdk-publish-meta-data.json": {
-        "settings": {
-          "project": {
-            "XDK-not-deployed": "True"
-          }
-        }
-      }
-    },
+    "projectFiles": {},
     "projectDirectories": {
       "xdk": {
         "settings": {
@@ -48,48 +40,67 @@
           "Orientation": "portrait",
           "Fullscreen": true
         },
-        "isActive_": false,
-        "certificateId_": "",
+        "isActive_": true,
         "appName_": "OrganizaTEA",
         "appID_": "com.app.organizatea",
-        "appAccess_": {
-          "mode": "legacy",
-          "network": [
-            "*"
-          ],
-          "intents": [],
-          "navigation": []
-        },
+        "appAccess_": [
+          {
+            "origin": "*"
+          }
+        ],
         "icons_": [],
         "splashes_": [],
         "addlPermissions_": "",
         "excludedLibraries_": "",
         "appVersion_": "0.0.1",
         "appVersionCode_": "1",
+        "crosswalkVersion_": "11",
         "cordovaCLIVersion_": "4.1.2",
         "appDescription_": "organizaTEA",
         "appAuthor_": "Nicolas Oliver"
+      },
+      "Android-Crosswalk": {
+        "platform_": "android",
+        "runtime_": "W3C on Crosswalk",
+        "name_": "Android-Crosswalk",
+        "preferences_": {
+          "android-minSdkVersion": "14",
+          "android-targetSdkVersion": "19",
+          "android-installLocation": "auto"
+        },
+        "isActive_": false,
+        "appName_": "organizaTEA",
+        "appID_": "not.yet.specified",
+        "appAccess_": [
+          {
+            "origin": "*"
+          }
+        ],
+        "icons_": [],
+        "splashes_": [],
+        "addlPermissions_": "",
+        "excludedLibraries_": "",
+        "appVersion_": "0.0.1",
+        "appVersionCode_": "1",
+        "crosswalkVersion_": "11",
+        "cordovaCLIVersion_": "4.1.2"
       },
       "iOS": {
         "platform_": "ios",
         "runtime_": "W3C on Cordova",
         "name_": "iOS",
         "preferences_": {
-          "ios-configuration": "adhoc",
-          "deployment-target": "6"
+          "ios-target": "6",
+          "ios-configuration": "adhoc"
         },
         "isActive_": false,
-        "certificateId_": "",
         "appName_": "organizaTEA",
         "appID_": "not.yet.specified",
-        "appAccess_": {
-          "mode": "legacy",
-          "network": [
-            "*"
-          ],
-          "intents": [],
-          "navigation": []
-        },
+        "appAccess_": [
+          {
+            "origin": "*"
+          }
+        ],
         "icons_": [],
         "splashes_": [],
         "addlPermissions_": "",
@@ -104,17 +115,13 @@
         "name_": "Windows8",
         "preferences_": {},
         "isActive_": false,
-        "certificateId_": "",
         "appName_": "organizaTEA",
         "appID_": "not.yet.specified",
-        "appAccess_": {
-          "mode": "legacy",
-          "network": [
-            "*"
-          ],
-          "intents": [],
-          "navigation": []
-        },
+        "appAccess_": [
+          {
+            "origin": "*"
+          }
+        ],
         "icons_": [],
         "splashes_": [],
         "addlPermissions_": "",
@@ -128,17 +135,13 @@
         "name_": "WebApp",
         "preferences_": {},
         "isActive_": true,
-        "certificateId_": "",
         "appName_": "organizaTEA",
         "appID_": "not.yet.specified",
-        "appAccess_": {
-          "mode": "legacy",
-          "network": [
-            "*"
-          ],
-          "intents": [],
-          "navigation": []
-        },
+        "appAccess_": [
+          {
+            "origin": "*"
+          }
+        ],
         "icons_": [],
         "splashes_": [],
         "addlPermissions_": "",
@@ -151,17 +154,13 @@
         "name_": "Firefox",
         "preferences_": {},
         "isActive_": true,
-        "certificateId_": "",
         "appName_": "organizaTEA",
         "appID_": "not.yet.specified",
-        "appAccess_": {
-          "mode": "legacy",
-          "network": [
-            "*"
-          ],
-          "intents": [],
-          "navigation": []
-        },
+        "appAccess_": [
+          {
+            "origin": "*"
+          }
+        ],
         "icons_": [],
         "splashes_": [],
         "addlPermissions_": "",
@@ -174,17 +173,13 @@
         "name_": "Chrome",
         "preferences_": {},
         "isActive_": true,
-        "certificateId_": "",
         "appName_": "organizaTEA",
         "appID_": "not.yet.specified",
-        "appAccess_": {
-          "mode": "legacy",
-          "network": [
-            "*"
-          ],
-          "intents": [],
-          "navigation": []
-        },
+        "appAccess_": [
+          {
+            "origin": "*"
+          }
+        ],
         "icons_": [],
         "splashes_": [],
         "addlPermissions_": "",
@@ -197,45 +192,19 @@
         "name_": "Facebook",
         "preferences_": {},
         "isActive_": true,
-        "certificateId_": "",
         "appName_": "organizaTEA",
         "appID_": "not.yet.specified",
-        "appAccess_": {
-          "mode": "legacy",
-          "network": [
-            "*"
-          ],
-          "intents": [],
-          "navigation": []
-        },
+        "appAccess_": [
+          {
+            "origin": "*"
+          }
+        ],
         "icons_": [],
         "splashes_": [],
         "addlPermissions_": "",
         "excludedLibraries_": "",
         "appVersion_": "0.0.1"
-      },
-      "WP81": {
-        "platform_": "wp81",
-        "runtime_": "W3C on Cordova",
-        "name_": "WP81",
-        "preferences_": {},
-        "isActive_": true,
-        "certificateId_": "",
-        "appName_": "organizaTEA",
-        "appID_": "not.yet.specified",
-        "appAccess_": {
-          "mode": "legacy",
-          "network": [],
-          "intents": [],
-          "navigation": []
-        },
-        "addlPermissions_": "",
-        "icons_": [],
-        "splashes_": [],
-        "appVersion_": "0.0.0.1",
-        "cordovaCLIVersion_": "6.2.0"
       }
-    },
-    "testDirectory": "test"
+    }
   }
 }

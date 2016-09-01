@@ -30,7 +30,6 @@ angular.module('myApp.directive', [])
   };
 }])
 
-
 .directive('mdlComponent', [function(){
   return {
     link: function(scope,elem,attrs) {

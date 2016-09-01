@@ -1,15 +1,9 @@
 {
   "project": {
-    "projectSettingsVersion": "3.0.0",
+    "projectSettingsVersion": "1.3",
     "initialAutoPluginCount": 0,
     "currentBuildConfiguration": "WebApp",
     "projectFiles": {},
     "projectDirectories": {}
-  },
-  "build-tab": {
-    "selectedTargets": []
-  },
-  "editorTab": {
-    "currentEditorMode": 0
   }
 }

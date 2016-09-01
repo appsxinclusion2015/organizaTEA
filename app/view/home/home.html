@@ -1,34 +1,17 @@
-<div class="mdl-typography--text-center">
+<div class="text-center">
   <img src="./view/assets/logo.JPG" />
 </div>
 
-<div class="mdl-grid">
-  <div class="mdl-cell mdl-cell--1-col-tablet"></div>
-  <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp mdl-cell mdl-cell--6-col-tablet">
-    <thead>
-      <tr>
-        <th class="mdl-data-table__cell--non-numeric">
-          <h5 class="mdl-typography--text-center">RUTINAS</h5>
-        </th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr ng-repeat="routine in routineList">
-        <td class="mdl-data-table__cell--non-numeric" ng-click="goToRoutine(routine.id)">
-          <h4 class="mdl-typography--text-center">{{ routine.title }}</h4>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-  <div class="mdl-cell mdl-cell--1-col-tablet"></div>
+<h1 clasS="text-center">OrganizaTEA <small>Rutinas</small></h1>
+
+<div class="list-group">
+  <a href="" class="list-group-item" ng-repeat="routine in routineList" ng-click="goToRoutine(routine.id)">
+    {{ routine.title }}
+  </a>
 </div>
 
-<div class="mdl-grid">
-  <div class="mdl-cell mdl-cell--1-col-tablet"></div>
-  <div class="mdl-cell mdl-cell--6-col-tablet mdl-typography--text-center">
-    <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--colored app-color-orange" ng-click="goToCreate()">
-      <i class="material-icons">add</i>
-    </button>
-  </div>
-  <div class="mdl-cell mdl-cell--1-col-tablet"></div>
+<div class="text-center">
+  <a href="" ng-click="goToCreate()" style="font-size:30px;">
+    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+  </a>
 </div>

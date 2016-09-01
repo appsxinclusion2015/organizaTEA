@@ -1,18 +1,12 @@
-<button button-back></button>
+<h1><small>{{ model.routine.title }}</small></h1>
 
-<div class="mdl-typography--text-center">
-  <h4>{{ model.routine.title }}</h4>
-</div>
-
-<div class="mdl-grid" ng-repeat="activity in model.activityList">
-  <div class="mdl-cell mdl-cell--1-col-tablet"></div>
-  <div class="mdl-card mdl-shadow--3dp mdl-cell mdl-cell--6-col-tablet" ng-click="goToActivity(activity.id)">
-    <div class="mdl-card__title">
-      <h2 class="mdl-card__title-text">{{ activity.title }}</h2>
-    </div>
-    <div class="mdl-card__media">
+<div class="row">
+  <div class="col-sm-6 col-md-4" ng-repeat="activity in model.activityList">
+    <div class="thumbnail" ng-click="goToActivity(activity.id)">
       <img ng-src="{{ activity.banner }}" class="routine-activity-banner">
+      <div class="caption">
+        <h3>{{ activity.title }}</h3>
+      </div>
     </div>
-  </div>  
-  <div class="mdl-cell mdl-cell--1-col-tablet"></div>
+  </div>
 </div>

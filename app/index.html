@@ -2,7 +2,10 @@
 <!--[if lt IE 7]>      <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html lang="en" ng-app="myApp" class="no-js"> <!--<![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en" ng-app="myApp" class="no-js">
+<!--<![endif]-->
+
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,31 +15,33 @@
   <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/normalize.css">
   <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/main.css">
   <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
-  <link rel="stylesheet" href="bower_components/material-design-lite/material.min.css">
-  <script src="bower_components/material-design-lite/material.min.js"></script>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <!--link rel="stylesheet" href="bower_components/material-design-lite/material.min.css"-->
+  <!--script src="bower_components/material-design-lite/material.min.js"></script-->
+  <!--link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"-->
   <link rel="stylesheet" href="app.css">
-  <!--script src="bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script-->
+  <script src="bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
 </head>
+
 <body>
   <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
   <![endif]-->
-  <!-- Always shows a header, even in smaller screens. -->
-  <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
-    <header class="mdl-layout__header app-color-blue">
-      <div class="mdl-layout__header-row" style="padding:40px;">
-        <!-- Title -->
-        <span class="mdl-layout-title app-navbar-title">OrganizaTEA</span>
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#home"><span class="glyphicon glyphicon-home"></span> Home</a>
       </div>
-    </header>
-    <main class="mdl-layout__content">
-      <div ng-view class="view-animate">
-      
-      </div>
-      <!-- Your content goes here -->
-    </main>
+    </div>
+    <!-- /.container-fluid -->
+  </nav>
+
+  <div class="container-fluid">
+    <div ng-view>
+
+    </div>
   </div>
+
 
   <!-- In production use:
   <script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
@@ -48,9 +53,9 @@
   <script src="bower_components/jquery/dist/jquery.min.js"></script>
   <script src="bower_components/bootstrap/js/transition.js"></script>
   <script src="bower_components/bootstrap/js/carousel.js"></script>
-  <!--script src="bower_components/materialize/dist/js/materialize.min.js"></script-->
-  <!--script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script-->
-  
+  <script src="bower_components/bootstrap/js/tab.js"></script>
+  <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
   <script src="app.js"></script>
   <script src="components/directive/directive.js"></script>
   <script src="components/resource/resource.js"></script>
@@ -63,22 +68,23 @@
   <script src="components/version/version.js"></script>
   <script src="components/version/version-directive.js"></script>
   <script src="components/version/interpolate-filter.js"></script>
-  
+
   <!--script src="components/youtube/auth.js"></script-->
   <script>
-  googleApiClientReady = function() {
-    gapi.auth.init(function() {
-      window.setTimeout(function(){
-        gapi.client.setApiKey('AIzaSyAFpaimWjjFzXtsUA7ck6RPHcuu8Gdwmj0');
+    googleApiClientReady = function () {
+      gapi.auth.init(function () {
+        window.setTimeout(function () {
+          gapi.client.setApiKey('AIzaSyAFpaimWjjFzXtsUA7ck6RPHcuu8Gdwmj0');
 
-        gapi.client.load('youtube', 'v3', function() {
-          console.log('youtubeApi ready');
-        });
-      }, 1);
-    });
-  };
+          gapi.client.load('youtube', 'v3', function () {
+            console.log('youtubeApi ready');
+          });
+        }, 1);
+      });
+    };
   </script>
   <script src="https://apis.google.com/js/client.js?onload=googleApiClientReady"></script>
-  
+
 </body>
+
 </html>

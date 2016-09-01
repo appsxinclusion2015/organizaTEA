@@ -1,32 +1,23 @@
-<button button-back ng-hide="isShowingCongratulateGif"></button>
+<h1 ng-hide="isShowingCongratulateGif">
+  <small>{{ model.activity.title }}</small>
+</h1>
 
-<div class="mdl-typography--text-center" ng-hide="isShowingCongratulateGif">
-  <h4>{{ model.activity.title }}</h4>
-</div>
-
-<div class="mdl-grid">
-  <div class="mdl-cell mdl-cell--8-col-tablet" ng-click="goToActivity(activity.id)">
-    <div id="carousel-activity-media" class="carousel slide" ng-hide="isShowingCongratulateGif">
-      <div class="carousel-inner" role="listbox">
-        <div ng-class="{item: true, active: $first}" ng-repeat="resource in model.resourceList">
-          <div class="embed-responsive embed-responsive-4by3" ng-if="resource.type === 'video'">
-            <iframe class="embed-responsive-item" ng-src="{{ resource.src | trustAsResourceUrl }}" frameborder="0" allowfullscreen></iframe>
-          </div>
-          <img ng-src="{{ resource.src }}" class="img-responsive activity-carousel-image" alt="..." ng-if="resource.type === 'image'">
-        </div>
+<div id="carousel-activity-media" class="carousel slide" ng-hide="isShowingCongratulateGif">
+  <div class="carousel-inner" role="listbox">
+    <div ng-class="{item: true, active: $first}" ng-repeat="resource in model.resourceList">
+      <div class="embed-responsive embed-responsive-4by3" ng-if="resource.type === 'video'">
+        <iframe class="embed-responsive-item" ng-src="{{ resource.src | trustAsResourceUrl }}" frameborder="0" allowfullscreen></iframe>
       </div>
-
-      <a class="left carousel-control activity-carousel-control" data-target="#carousel-activity-media" role="button" data-slide="prev">
-        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-      </a>
-      <a class="right carousel-control activity-carousel-control" data-target="#carousel-activity-media" role="button" data-slide="next">
-        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-      </a>
+      <img ng-src="{{ resource.src }}" class="img-responsive activity-carousel-image" alt="..." ng-if="resource.type === 'image'">
     </div>
   </div>
+
+  <a class="left carousel-control activity-carousel-control" data-target="#carousel-activity-media" role="button" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+  </a>
+  <a class="right carousel-control activity-carousel-control" data-target="#carousel-activity-media" role="button" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+  </a>
 </div>
 
-
-
 <img src="http://img.kimensajes.com/felicidades/25.gif" class="app-congrats-gif" ng-show="isShowingCongratulateGif" ng-click="hideCongratulateGif()"></img>
-
