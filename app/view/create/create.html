@@ -109,7 +109,7 @@
 
     <ul class="media-list" ng-show="searchResults.length > 0">
       <li class="media" ng-repeat="result in searchResults">
-        <div class="media-left">
+        <div class="media-left" ng-if="result.pagemap.cse_image.lenght >= 0">
           <img class="media-object" width="90px" height="65px" src="{{ result.pagemap.cse_image[0].src }}" alt="...">
         </div>
         <div class="media-body" ng-click="previewActivity(result)">

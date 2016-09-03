@@ -13,7 +13,24 @@
     </div>
   </div>
 
-  <div class="btn-group btn-group-justified" role="group" aria-label="..." style="margin-top: 15px;">
+  <div class="embed-responsive embed-responsive-16by9" ng-if="form.src" style="margin-bottom: 15px;">
+    <iframe class="embed-responsive-item" ng-src="{{ form.src | trustAsResourceUrl }}" frameborder="0" allowfullscreen></iframe>
+  </div>
+  
+  <div class="form-group">
+    <div class="input-group">
+      <input type="text" class="form-control" ng-model="searchQuery" placeholder="BUSCAR VIDEOS">
+      <span class="input-group-btn">
+        <button class="btn btn-primary" type="button" ng-click="searchResources()">BUSCAR</button>
+      </span>
+    </div>
+  </div>
+
+  <div class="list-group" ng-show="searchResults.length > 0">
+    <a data-role="button" class="list-group-item" ng-repeat="result in searchResults" ng-click="previewResource(result)">{{ result.snippet.title }}</a>
+  </div>
+
+  <div class="btn-group btn-group-justified" role="group" aria-label="..." style="margin-top: 15px; margin-bottom 15px;">
     <div class="btn-group" role="group">
       <button type="button" class="btn btn-danger" ng-click="deleteResource()">BORRAR</button>
     </div>
