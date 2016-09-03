@@ -20,4 +20,4 @@ Grupo 6:
 * Nicolas Oliver (nicolasoliver03@gmail.com)
 * Alejandra Albri (alealbri@hotmail.com)
 * Ignacio Brusso (nachobrusso@gmail.com)
-* Patricia Viel (patriciadz5@gmail.com)
+* Patricia Viel (patriciadz5@gmail.com

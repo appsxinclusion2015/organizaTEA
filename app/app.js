@@ -1,3 +1,5 @@
+/* global window, _ */
+
 'use strict';
 
 // Declare app level module which depends on views, and components
@@ -8,9 +10,9 @@ angular.module('myApp', [
   'myApp.config',
   'myApp.routine',
   'myApp.activity',
+  'myApp.resourceView',
   'myApp.create',
-  'myApp.version',
-  'myApp.directive'
+  'myApp.version'
 ])
 
 .config(['$routeProvider', function ($routeProvider) {
@@ -46,9 +48,21 @@ angular.module('myApp', [
       templateUrl: 'view/routine/routine.html',
       controller: 'RoutineController'
     })
+    .when('/edit_routine/:routineId', {
+      templateUrl: 'view/routine/edit_routine.html',
+      controller: 'RoutineController'
+    })
     .when('/activity/:activityId', {
       templateUrl: 'view/activity/activity.html',
       controller: 'ActivityController'
+    })
+    .when('/edit_activity/:activityId', {
+      templateUrl: 'view/activity/edit_activity.html',
+      controller: 'ActivityController'
+    })
+    .when('/edit_resource/:resourceId', {
+      templateUrl: 'view/resource/edit_resource.html',
+      controller: 'ResourceController'
     })
     .otherwise({
       redirectTo: '/home'
@@ -61,18 +75,31 @@ angular.module('myApp', [
   $rootScope.resourceList = [];
 
   /**
+   * Helper methods
+   */
+  $rootScope.saveLocalStorageItem = function (item, object) {
+    window.localStorage.setItem(item, JSON.stringify(object));
+  };
+
+  $rootScope.getLocalStorageItem = function (item) {
+    return JSON.parse(window.localStorage.getItem(item));
+  };
+
+  $rootScope.identity = Date.now();
+
+  /**
    * Routine Methods
    */
   $rootScope.saveRoutineList = function () {
-    window.localStorage.setItem('routines', JSON.stringify($rootScope.routineList));
+    $rootScope.saveLocalStorageItem('routines', $rootScope.routineList);
   };
 
   $rootScope.getRoutineList = function () {
-    return JSON.parse(window.localStorage.getItem('routines'));
+    return $rootScope.getLocalStorageItem('routines');
   };
 
   $rootScope.saveRoutine = function (routine) {
-    routine.id = 'routine_' + $rootScope.routineList.length;
+    routine.id = 'routine_' + (++$rootScope.identity);
     $rootScope.routineList.push(routine);
     $rootScope.saveRoutineList();
   };
@@ -82,9 +109,34 @@ angular.module('myApp', [
       id: routineId
     })[0];
   };
-  
+
+  $rootScope.updateRoutine = function (routine) {
+    var index = _.findIndex($rootScope.routineList, {
+      id: routine.id
+    });
+
+    if (index >= 0) {
+      $rootScope.routineList[index] = routine;
+      $rootScope.saveRoutineList();
+    }
+  };
+
+  $rootScope.deleteRoutine = function (routineId) {
+    var index = _.findIndex($rootScope.routineList, {
+      id: routineId
+    });
+
+    if (index >= 0) {
+      $rootScope.routineList.splice(index, 1);
+      $rootScope.saveRoutineList();
+    }
+  };
+
   $rootScope.initializeRoutine = function (routineId) {
     var routine = $rootScope.getRoutine(routineId);
+
+    if (!routine) return null;
+
     var activityList = [];
 
     routine.activities.forEach(function (activityId) {
@@ -102,15 +154,15 @@ angular.module('myApp', [
    * Activity Methods
    */
   $rootScope.saveActivityList = function () {
-    window.localStorage.setItem('activities', JSON.stringify($rootScope.activityList));
+    $rootScope.saveLocalStorageItem('activities', $rootScope.activityList);
   };
 
   $rootScope.getActivityList = function () {
-    return JSON.parse(window.localStorage.getItem('activities'));
+    return $rootScope.getLocalStorageItem('activities');
   };
 
   $rootScope.saveActivity = function (activity) {
-    activity.id = 'activity_' + $rootScope.activityList.length;
+    activity.id = 'activity_' + (++$rootScope.identity);
     $rootScope.activityList.push(activity);
     $rootScope.saveActivityList();
   };
@@ -119,6 +171,28 @@ angular.module('myApp', [
     return $filter('filter')($rootScope.activityList, {
       id: activityId
     })[0];
+  };
+
+  $rootScope.updateActivity = function (activity) {
+    var index = _.findIndex($rootScope.activityList, {
+      id: activity.id
+    });
+
+    if (index >= 0) {
+      $rootScope.activityList[index] = activity;
+      $rootScope.saveActivityList();
+    }
+  };
+
+  $rootScope.deleteActivity = function (activityId) {
+    var index = _.findIndex($rootScope.activityList, {
+      id: activityId
+    });
+
+    if (index >= 0) {
+      $rootScope.activityList.splice(index, 1);
+      $rootScope.saveActivityList();
+    }
   };
 
   $rootScope.initializeActivity = function (activityId) {
@@ -140,15 +214,15 @@ angular.module('myApp', [
    * Resources Methods
    */
   $rootScope.saveResourceList = function () {
-    window.localStorage.setItem('resources', JSON.stringify($rootScope.resourceList));
+    $rootScope.saveLocalStorageItem('resources', $rootScope.resourceList);
   };
 
   $rootScope.getResourceList = function () {
-    return JSON.parse(window.localStorage.getItem('resources'));
+    return $rootScope.getLocalStorageItem('resources');
   };
 
   $rootScope.saveResource = function (resource) {
-    resource.id = 'resource_' + $rootScope.resourceList.length;
+    resource.id = 'resource_' + (++$rootScope.identity);
     $rootScope.resourceList.push(resource);
     $rootScope.saveResourceList();
   };
@@ -157,6 +231,36 @@ angular.module('myApp', [
     return $filter('filter')($rootScope.resourceList, {
       id: resourceId
     })[0];
+  };
+
+  $rootScope.updateResource = function (resource) {
+    var index = _.findIndex($rootScope.resourceList, {
+      id: resource.id
+    });
+
+    if (index >= 0) {
+      $rootScope.resourceList[index] = resource;
+      $rootScope.saveResourceList();
+    }
+  };
+
+  $rootScope.deleteResource = function (resourceId) {
+    var index = _.findIndex($rootScope.resourceList, {
+      id: resourceId
+    });
+
+    if (index >= 0) {
+      $rootScope.resourceList.splice(index, 1);
+      $rootScope.saveResourceList();
+    }
+  };
+  
+  $rootScope.initializeResource = function (resourceId) {
+    var resource = $rootScope.getResource(resourceId);
+
+    return {
+      resource: resource
+    };
   };
 
   /**
@@ -175,4 +279,22 @@ angular.module('myApp', [
   window.app = {
     $rootScope: $rootScope
   };
-});
+})
+
+.controller('NavController', ['$scope', '$location', function ($scope, $location) {
+  $scope.showBackButton = $location.path() !== '/home';
+
+  $scope.$watch(function () {
+    return $location.path();
+  }, function (newVal) {
+    if (newVal === '/home') {
+      $scope.showBackButton = false;
+    } else {
+      $scope.showBackButton = true;
+    }
+  });
+
+  $scope.goBack = function () {
+    window.history.back();
+  };
+}]);

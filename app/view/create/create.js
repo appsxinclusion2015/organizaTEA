@@ -1,3 +1,5 @@
+/* global console, gapi */
+
 'use strict';
 
 angular.module('myApp.create', ['ngRoute', 'ngAnimate'])
@@ -189,7 +191,7 @@ angular.module('myApp.create', ['ngRoute', 'ngAnimate'])
     type: 'video',
     src: '',
     title: ''
-  };;
+  };
 
   $scope.reset = function () {
     $scope.resource = {

@@ -1,0 +1,36 @@
+<div ng-if="!model">
+  <h1><small>ACTIVIDAD BORRADA</small></h1>
+</div>
+
+<div ng-if="model">
+
+  <h1><small>EDITAR ACTIVIDAD</small></h1>
+
+  <div class="form-group">
+    <div class="input-group">
+      <div class="input-group-addon">TITULO</div>
+      <input type="text" class="form-control" ng-model="form.title" placeholder="TITULO">
+    </div>
+  </div>
+
+  <h4>EDITAR RECURSOS</h4>
+
+  <div class="input-group" ng-repeat="resourceSelection in resourceSelectionList">
+    <input type="text" class="form-control" ng-value="resourceSelection.resource.title">
+    <span class="input-group-addon">
+        <input type="checkbox"  ng-model="resourceSelection.enabled">
+      </span>
+  </div>
+
+  <div class="btn-group btn-group-justified" role="group" aria-label="..." style="margin-top: 15px;">
+    <div class="btn-group" role="group">
+      <button type="button" class="btn btn-danger" ng-click="deleteActivity()">BORRAR</button>
+    </div>
+    <div class="btn-group" role="group">
+      <button type="button" class="btn btn-primary" ng-click="updateActivity()">GUARDAR</button>
+    </div>
+    <div class="btn-group" role="group">
+      <button type="button" class="btn btn-success" ng-click="reset()">CANCELAR</button>
+    </div>
+  </div>
+</div>

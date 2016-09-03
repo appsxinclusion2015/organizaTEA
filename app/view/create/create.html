@@ -6,9 +6,9 @@
       <span class="glyphicon glyphicon-plus pull-right" ng-show="!showRoutines"></span>
     </h4>
   </a>
-  <a href="" class="list-group-item" ng-repeat="routine in routineList" ng-show="showRoutines">
+  <a href="#/edit_routine/{{ routine.id }}" class="list-group-item" ng-repeat="routine in routineList" ng-show="showRoutines">
     {{ routine.title }}
-    <span class="glyphicon glyphicon-pencil pull-right"></span>
+    <span class="glyphicon glyphicon-pencil pull-right" ></span>
   </a>
   <a href="" class="list-group-item">
     <h4 class="list-group-item-heading" ng-click="toggleActivities()">ACTIVIDADES
@@ -17,7 +17,7 @@
       <span class="glyphicon glyphicon-plus pull-right" ng-show="!showActivities"></span>
     </h4>
   </a>
-  <a href="" class="list-group-item" ng-repeat="activity in activityList" ng-show="showActivities">
+  <a href="#/edit_activity/{{ activity.id }}" class="list-group-item" ng-repeat="activity in activityList" ng-show="showActivities">
     {{ activity.title }}
     <span class="glyphicon glyphicon-pencil pull-right"></span>
   </a>
@@ -28,25 +28,22 @@
       <span class="glyphicon glyphicon-plus pull-right" ng-show="!showResources"></span>
     </h4>
   </a>
-  <a href="" class="list-group-item" ng-repeat="resource in resourceList" ng-show="showResources">
+  <a href="#/edit_resource/{{ resource.id }}" class="list-group-item" ng-repeat="resource in resourceList" ng-show="showResources">
     {{ resource.title }}
     <span class="glyphicon glyphicon-pencil pull-right"></span>
   </a>
 </div>
 
-<h1 clasS="text-center"><small>CREAR</small></h1>
+<h1 class="text-center"><small>CREAR</small></h1>
 
 <ul class="nav nav-pills nav-justified" role="tablist" id="createTabs">
   <li role="presentation" class="active">
-    <!--a href="#create/routine">RUTINA</a-->
     <a data-target="#createRoutine" aria-controls="createRoutine" role="tab" data-toggle="pill">RUTINA</a>
   </li>
   <li role="presentation">
-    <!--a href="#create/activity">ACTIVIDAD</a-->
     <a data-target="#createActivity" aria-controls="createActivity" role="tab" data-toggle="pill">ACTIVIDAD</a>
   </li>
   <li role="presentation">
-    <!--a href="#create/resource">RECURSO</a-->
     <a data-target="#createResource" aria-controls="createResource" role="tab" data-toggle="pill">RECURSO</a>
   </li>
 </ul>
@@ -69,8 +66,8 @@
     <div class="input-group" ng-repeat="activitySelection in activitySelectionList">
       <input type="text" class="form-control" ng-value="activitySelection.activity.title">
       <span class="input-group-addon">
-    <input type="checkbox"  ng-model="activitySelection.enabled">
-  </span>
+        <input type="checkbox"  ng-model="activitySelection.enabled">
+      </span>
     </div>
 
     <div class="btn-group btn-group-justified" role="group" aria-label="..." style="margin-top: 15px;">
