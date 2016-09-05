@@ -8,7 +8,7 @@ angular.module('myApp.activity', ['ngRoute','ngAnimate'])
   
   $scope.model = null;
   
-  $scope.form = null;
+  $scope.form = {};
   
   $scope.resourceSelectionList = [];
   
@@ -28,15 +28,15 @@ angular.module('myApp.activity', ['ngRoute','ngAnimate'])
 
     if (!$scope.model) return;
 
-    $scope.form = {
-      title: $scope.model.activity.title
-    };
+    $scope.form.title = $scope.model.activity.title;
+		$scope.form.banner = $scope.model.activity.banner;
 
     $scope.updateResourceList();
   };
 
   $scope.updateActivity = function () {
     $scope.model.activity.title = $scope.form.title;
+		$scope.model.activity.banner = $scope.form.banner;
     $scope.model.activity.resources = [];
 
     $scope.resourceSelectionList.forEach(function (resourceSelection) {
@@ -68,5 +68,5 @@ angular.module('myApp.activity', ['ngRoute','ngAnimate'])
   };
   
   $scope.reset();
-}])
+}]);
 

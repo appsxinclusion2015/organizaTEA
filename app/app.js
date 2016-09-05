@@ -12,7 +12,8 @@ angular.module('myApp', [
   'myApp.activity',
   'myApp.resourceView',
   'myApp.create',
-  'myApp.version'
+  'myApp.version',
+	'myApp.directives'
 ])
 
 .config(['$routeProvider', function ($routeProvider) {
@@ -27,18 +28,6 @@ angular.module('myApp', [
     .when('/create', {
       templateUrl: 'view/create/create.html',
       controller: 'CreateController'
-    })
-    .when('/create/activity', {
-      templateUrl: 'view/create/newActivity.html',
-      controller: 'NewActivityController'
-    })
-    .when('/create/routine', {
-      templateUrl: 'view/create/newRoutine.html',
-      controller: 'NewRoutineController'
-    })
-    .when('/create/resource', {
-      templateUrl: 'view/create/newResource.html',
-      controller: 'NewResourceController'
     })
     .when('/config', {
       templateUrl: 'view/config/config.html',
@@ -288,8 +277,10 @@ angular.module('myApp', [
     return $location.path();
   }, function (newVal) {
     if (newVal === '/home') {
+			$scope.showHomeButton = false;
       $scope.showBackButton = false;
     } else {
+			$scope.showHomeButton = true;
       $scope.showBackButton = true;
     }
   });

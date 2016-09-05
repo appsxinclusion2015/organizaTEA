@@ -82,15 +82,8 @@ angular.module('myApp.create', ['ngRoute', 'ngAnimate'])
 }])
 
 .controller('NewActivityController', ['$scope', '$rootScope', '$location', '$http', function ($scope, $rootScope, $location, $http) {
-
-  $scope.previewUrl = 'http://placehold.it/350x150';
-
   $scope.resourceSelectionList = [];
-  
-  $scope.searchResults = [];
-  
-  $scope.searchQuery = '';
-  
+
   $scope.activity = {
     title: '',
     description: 'NUEVA ACTIVIDAD',
@@ -111,14 +104,7 @@ angular.module('myApp.create', ['ngRoute', 'ngAnimate'])
   };
 
   $scope.reset = function () {
-    $scope.previewUrl = 'http://placehold.it/350x150';
-
     $scope.resourceSelectionList = [];
-    
-    $scope.searchResults = [];
-    
-    $scope.searchQuery = '';
-
     $scope.activity = {
       title: '',
       description: 'NUEVA ACTIVIDAD',
@@ -137,26 +123,6 @@ angular.module('myApp.create', ['ngRoute', 'ngAnimate'])
 
     $scope.updateSelectionList();
   });
-
-  $scope.searchImages = function () {
-    var apiKey = 'AIzaSyAFpaimWjjFzXtsUA7ck6RPHcuu8Gdwmj0';
-    var cx = '000958933864851666858:7tq9ddv54gu';
-    var q = $scope.searchQuery;
-    
-    $http({
-      method: 'GET',
-      url: 'https://www.googleapis.com/customsearch/v1?q=' + q + ' &cx=' + cx + '&fileType=png&key=' + apiKey
-    }).then(function (response) {
-      $scope.searchResults = response.data.items;
-    }, function (error) {
-      console.error(error);
-    });
-  };
-  
-  $scope.previewActivity = function (result) {
-    $scope.activity.banner = result.pagemap.cse_image[0].src; 
-    $scope.previewUrl = result.pagemap.cse_image[0].src;
-  };
 
   $scope.saveActivity = function () {
     $scope.resourceSelectionList.forEach(function (resourceSelection) {
