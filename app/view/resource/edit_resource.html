@@ -1,36 +1,23 @@
 <div ng-if="!model">
-	<h1><small>RECURSO BORRADO</small></h1>
+  <h1><small>RECURSO BORRADO</small></h1>
 </div>
 
 <div ng-if="model">
+  <h1><small>EDITAR RECURSO</small></h1>
 
-	<h1><small>EDITAR RECURSO</small></h1>
+  <input-group title="TITULO" type="text" value="form.title" placeholder="TITULO"></input-group>
+  <input-group title="VIDEO" type="text" value="form.src" placeholder="VIDEO"></input-group>
+  <video-search selected="form.src"></video-search>
 
-	<div class="form-group">
-		<div class="input-group">
-			<div class="input-group-addon">TITULO</div>
-			<input type="text" class="form-control" ng-model="form.title" placeholder="TITULO">
-		</div>
-	</div>
-	
-	<div class="form-group">
-		<div class="input-group">
-			<div class="input-group-addon">VIDEO</div>
-			<input type="text" class="form-control" ng-model="form.src" placeholder="VIDEO">
-		</div>
-	</div>
-
-	<video-search selected="form.src"></video-search>
-
-	<div class="btn-group btn-group-justified" role="group" aria-label="..." style="margin-top: 15px; margin-bottom: 15px;">
-		<div class="btn-group" role="group">
-			<button type="button" class="btn btn-danger" ng-click="deleteResource()">BORRAR</button>
-		</div>
-		<div class="btn-group" role="group">
-			<button type="button" class="btn btn-primary" ng-click="updateResource()">GUARDAR</button>
-		</div>
-		<div class="btn-group" role="group">
-			<button type="button" class="btn btn-success" ng-click="reset()">CANCELAR</button>
-		</div>
-	</div>
+  <div class="btn-group btn-group-justified" role="group" aria-label="..." style="margin-top: 15px; margin-bottom: 15px;">
+    <div class="btn-group" role="group">
+      <button type="button" class="btn btn-danger" ng-click="deleteResource()">BORRAR</button>
+    </div>
+    <div class="btn-group" role="group">
+      <button type="button" class="btn btn-primary" ng-click="updateResource()">GUARDAR</button>
+    </div>
+    <div class="btn-group" role="group">
+      <button type="button" class="btn btn-success" ng-click="reset()">CANCELAR</button>
+    </div>
+  </div>
 </div>

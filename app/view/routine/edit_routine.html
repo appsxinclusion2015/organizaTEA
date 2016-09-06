@@ -3,23 +3,16 @@
 </div>
 
 <div ng-if="model">
-
   <h1><small>EDITAR RUTINA</small></h1>
-
-  <div class="form-group">
-    <div class="input-group">
-      <div class="input-group-addon">TITULO</div>
-      <input type="text" class="form-control" ng-model="form.title" placeholder="TITULO">
-    </div>
-  </div>
+  <input-group title="TITULO" type="text" value="form.title" placeholder="TITULO"></input-group>
 
   <h4>EDITAR ACTIVIDADES</h4>
 
   <div class="input-group" ng-repeat="activitySelection in activitySelectionList">
     <input type="text" class="form-control" ng-value="activitySelection.activity.title">
     <span class="input-group-addon">
-        <input type="checkbox"  ng-model="activitySelection.enabled">
-      </span>
+      <input type="checkbox"  ng-model="activitySelection.enabled">
+    </span>
   </div>
 
   <div class="btn-group btn-group-justified" role="group" aria-label="..." style="margin-top: 15px; margin-bottom: 15px;">

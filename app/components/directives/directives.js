@@ -118,4 +118,18 @@ angular.module('myApp.directives', ['ngRoute', 'ngAnimate'])
 			};
 		}
 	};
+}])
+
+.directive('inputGroup', [function () {
+	return {
+		restrict: 'E',
+		templateUrl: 'directive/input-group.html',
+		scope: {
+			title: '@',
+            type: '@',
+            value: '=',
+            placeholder: '@'
+		},
+		link: function (scope, element, attrs) {}
+	};
 }]);
